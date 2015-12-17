@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>New Webpage</title>
+    </head>
+    <body>
+<p>1. Hi, I’m _____, calling from Bilingual Birdies. I’m looking to speak with (Ms. Director’s name). Is she available?</p>
+
+<!-- Question 1 -->
+<button id="Yesbutton1" type="button">Yes</button>
+<button id="Nobutton1" type="button">No</button>
+<div id="message1"></div>
+
+<!-- Question 2 -->
+<button id="Yesbutton2" type="button">Yes</button>
+<button id="Nobutton2" type="button">No</button>
+<div id="message2"></div>
+
+<!-- Question 3 -->
+<button id="Yesbutton3" type="button">Yes</button>
+<button id="Nobutton3" type="button">No</button>
+<div id="message3"></div>
+
+<!-- Question 4 -->
+<button id="Yesbutton4" type="button">Yes</button>
+<button id="Nobutton4" type="button">No</button>
+<div id="message4"></div>
+
+<!-- Question 5 -->
+<button id="Yesbutton5" type="button">Yes</button>
+<button id="Nobutton5" type="button">No</button>
+<div id="message5"></div>
+
+<!-- Last --> 
+<button id="button6" type="button">Last</button>
+<div id="message6"></div>
+    
+<script>
+//Question 1
+//1. Yes
+var button1 = document.getElementById("Yesbutton1");
+var onClickYes1 = function(){
+document.getElementById("message1").textContent = "Hi, Ms.X, ____ here from Bilingual Birdies. Did I catch you at an ok time?";  
+  };
+button1.addEventListener("click", onClickYes1);
+//2. No
+var button1 = document.getElementById("Nobutton1");
+var onClickNo1 = function(){
+document.getElementById("message1").textContent = "ask when would be a better time to call back and offer a specific day/time to call back. "};
+button1.addEventListener("click", onClickNo1);
+
+//Question 2
+//1. Yes
+var button2 = document.getElementById("Yesbutton2");
+var onClickYes2 = function(){
+document.getElementById("message2").textContent = "Ms. X, I’m sure you’re busy and I want to respect your time, so I’ll be brief. I’m calling because we just released a new children’s CD and are giving a free copy to each family in preschools that have signed up for our classes. Depending on what enrichments you’re currently doing, you might have a need for our services. Have you heard of Bilingual Birdies?"};
+button2.addEventListener("click", onClickYes2);
+//2. No
+var button2 = document.getElementById("Nobutton2");
+var onClickNo2 = function(){
+document.getElementById("message2").textContent = "ask when would be a better time to call back and offer a specific day/time to call back. "};
+button2.addEventListener("click", onClickNo2);
+
+//Question 3
+//1. Yes
+var button3 = document.getElementById("Yesbutton3");
+var onClickYes3 = function(){
+document.getElementById("message3").textContent = "Great! Then you know we provide preschoolers with our live music foreign language classes. It’s learning a language with a live musician. Our teachers play guitar and lead your super fun Spanish, French, or Mandarin classes all through song, dance, and puppetry. Does this sound like something your children could benefit from?"};
+button3.addEventListener("click", onClickYes3);
+//2. No
+var button3 = document.getElementById("Nobutton3");
+var onClickNo3 = function(){
+document.getElementById("message3").textContent = "Ok I can quickly explain. We provide preschoolers with our live music foreign language classes. It’s learning a language with a live musician. Our teachers play guitar and lead your super fun Spanish, French, or Mandarin classes all through song, dance, and puppetry. Does this sound like something your children could benefit from?"};
+button3.addEventListener("click", onClickNo3);
+
+//Question 4
+//1. Yes
+var button4 = document.getElementById("Yesbutton4");
+var onClickYes4 = function(){
+document.getElementById("message4").textContent = "Wonderful. Right now we’re offering one free demo class so you can see what we do. Once you’ve experienced it, if you decide it’s not right for you, there’s no pressure at all to continue and at least you got a fun free afternoon for the kids. And if you like it we can talk about how to move forward. Can we schedule a time for a demo class in your school? ---(So do you have other enrichments right now? Do you usually have an enrichment budget to cover that or are you open to charging the parents for a pull out program? How many kids are in the school and how many classrooms do you have?)--- "};
+button4.addEventListener("click", onClickYes4);
+//2. No
+var button4 = document.getElementById("Nobutton4");
+var button4clicked;
+var onClickNo4 = function(){
+    button4clicked = true;
+    document.getElementById("message4").textContent = "Ok. Can I email you some info just in case your situation     changes in the future and you do have a need for our services?"};
+    button4.addEventListener("click", onClickNo4);
+
+//Question 5
+//1. Yes
+var button5 = document.getElementById("Yesbutton5");
+var onClickYes5 = function(){
+var button5clicked = true;
+
+if (button4clicked===true && button5clicked===true){
+    document.getElementById("message5").textContent = "For your email address I have _______@____.com. If that     is correct I will email you our info. Thank you for your time Ms. X. We are in contact. Have a nice day!"}else{
+    document.getElementById("message5").textContent = "Excellent. You just need to select one classroom and tell me a couple of options for day/times that work for you. It’s a 45 min lesson. Which language do you want to do? Can you please confirm the address and room number? Also, how many kids are in the class so I can make sure the teacher has enough instruments for them to use?"}
+
+};
+button5.addEventListener("click", onClickYes5);
+
+
+//2. No
+var button5 = document.getElementById("Nobutton5");
+var onClickNo5 = function(){
+document.getElementById("message5").textContent = "OK. Thank you for your time. Try hard to get an email in."};
+button5.addEventListener("click", onClickNo5);
+
+//Next
+//1. Next
+var button6 = document.getElementById("button6");
+var onClickYes6 = function(){
+document.getElementById("message5").textContent = "Thank you for your time Ms. X. The email I have for you is _______@____.com. If that’s correct I’ll email you a reminder of what we’ve discussed. I’m sure you’ll enjoy your Bilingual Birdies class. Do you have any other questions? Have a nice day!"};
+button6.addEventListener("click", onClickYes6);
+</script>
+
+    
+</body>
+</html>

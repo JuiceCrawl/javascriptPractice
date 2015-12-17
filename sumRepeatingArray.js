@@ -1,6 +1,6 @@
 function repeating_array(arr){
     
-    arr = arr.sort();
+    arr = arr.sort(function(a,b){return a-b}); //sort function doesn't sort numbers so well without a compare function
     var count = 0;
     var current = null;
     
