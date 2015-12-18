@@ -1,7 +1,7 @@
 function flatten(arr){
-    var flat_string = arr.join(); //arr into a string
-    var cleanStr = flat_string.replace(/,/g," "); //removes commas
-    var flat_arr = cleanStr.split(' '); //access individual numbers - put back in an arr
+    var flat_string = arr.join(","); //arr into a string
+    //var cleanStr = flat_string.replace(/,/g," "); //removes commas
+    var flat_arr = flat_string.split(","); //access individual numbers - put back in an arr
     var sum = 0;
     
     for(var i=0; i<flat_arr.length; i++){
