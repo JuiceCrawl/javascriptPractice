@@ -6,7 +6,7 @@ function isBinSymmetry(integer) {
     var binary = decimalToBinary(integer);
     var reversedBinary = binary.split("").reverse().join("");
     console.log(binary)
-    console.log(reversedBinary)
+    //console.log(reversedBinary)
     
     if(binary === reversedBinary && binary.length !== 1){
         return true
@@ -26,39 +26,42 @@ function isBinSymmetry(integer) {
 function decimalToBinary(x) {
     var binaryString = [];
     var binary = largestPowerOfTwo(x);
-    var firstPosition = findPostion(binary);
-    var position = firstPosition;
+    var position = findPostion(binary);
+    var positionAbove = position + 1;
     var lastBinary;
     
     while (binary >= 1){
     //for case of 1
-        if(position === 1){
+        if(position === 1 && position === positionAbove - 1){
             binaryString.push("1")
             break;
-        }else if (position > 1){
-            //need a case for first position to test against next positions
-            if(position === firstPosition){
+        }else{
+            //tests against position of previous factor of two
+            if(position === positionAbove - 1){
                 binaryString.push("1")
+            }else{
+                var findDiff = findPostion(lastBinary, binary)
+                if(findDiff > 2){
+                    for(var i = 0; i < (findDiff - 3); i++){
+                        binaryString.push("0")
+                    }
+                    binaryString.push("01")
+                }else{
+                    binaryString.push("01")
+                }
+                
             }
+        }   
+        
+        positionAbove = position
             lastBinary = x // for case where we end before the last position and need to add zeros
             x = x - binary
             binary = largestPowerOfTwo(x)
-            nextPosition = findPostion(binary)
-            if(nextPosition === position - 1){
-                binaryString.push("1")
-            }else if (nextPosition > 2){
-                binaryString.push("01")
-            }else if(position === 2){
-                binaryString.push("0")
-            }else{
-                binaryString.push("0")
-            }
-            position = nextPosition // last position becomes next position
-        }
+            position = findPostion(binary)
     }
     //in the case where the number given is a power of two larger than "1" or "2" then we will have to add zeros to the end. An example is "8"
     if(position === 0){
-        var addZeros = findPostion(lastBinary)-2 //subtract 2 because we already added a zero in else case and we have 1 less zeros than binary position
+        var addZeros = findPostion(lastBinary)-1 //subtract 2 because we have 1 less zeros than its binary position
         for(var i = 0; i < addZeros; i++){
             binaryString.push("0")
         }
@@ -67,9 +70,17 @@ function decimalToBinary(x) {
 }
 
 /* This function returns the position of a power of two by using a count variable and the divide by two function */
-function findPostion(binary){
+function findPostion(binary, one){
     var count = 0;
-    while(binary >= 1){
+
+// using one helps us check if there are gaps between positions in the decimalToBinary function
+    if(one > 1){
+        one = one
+    }else{
+        one = 1
+    }
+    
+    while(binary >= one){
         binary = divideByTwo(binary);
         count ++;
     }
@@ -107,5 +118,4 @@ function divideByTwo(n){
     return n;
 }
 
-//decimalToBinary(500);
-isBinSymmetry(99);
+isBinSymmetry(13);
