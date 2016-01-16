@@ -11,21 +11,16 @@ function caesar_cipher(num, str){
     
     for(var i = 0; i < str.length; i++){
         var index = alphabet.indexOf(str[i])
-        console.log("index" + index)
         if(index === -1){
             decoded.push(" ") // -1 here means this was a space in the string
             continue; // instead of else statment. (without it will run the last else statment)
-        }
-        if(index + num > 25){ //25 letters in alphabet w/ 0 index
+        }else{
             var newIndex = ((index + num) % 26) // resets alphabet, 26%26 = 0 index
             decoded.push(alphabet[newIndex])
-            console.log(newIndex)
-        }else{
-            decoded.push(alphabet[index + num])
         }
     }
     return decoded.join('')
 }
 
 //caesar_cipher(3, 'abc') //== 'def'
-caesar_cipher(3, 'abc xyz') //== 'def abc'
+caesar_cipher(300, 'abc xyz') //== 'def abc'
