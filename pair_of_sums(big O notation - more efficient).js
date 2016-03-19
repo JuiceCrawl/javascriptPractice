@@ -2,11 +2,10 @@ function pair_sum(arr, total){
     var left = 0
     var right = arr.length - 1
     
-    while(right == left){
+    while(right != left){
         
         if(arr[left] + arr[right] == total){
             return true;
-            break;
         }else if (arr[left] + arr[right] > total){
             right--
         }else if (arr[left] + arr[right] < total){
